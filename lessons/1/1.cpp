@@ -39,6 +39,33 @@ bool isPrime(int n) {
   return true;
 }
 
+// Массивы
+void workArr(int n) {
+  // на стеке
+  bool b[8];
+  // в куче
+  int* a = new int[n];
+  // работа с массивами
+  for (int i=0; i<n; i++) {
+    a[i] = 2*i;
+  }
+  for (int i=0; i<8; i++) {
+    b[i] = false;
+    int x = (1 << i); // сдвиг влево на i битов
+    for (int j=0; j<8; j++) {
+      b[i] |= (a[i] & x) > 0;
+    }
+  }
+  for (int i=0; i<8; i++) {
+    // вместо b[i] можно писать *(b+i)
+    if (*(b+i))
+      cout << i << " ";
+  }
+
+  // освобождение памяти
+  delete[] a;
+}
+
 // точка входа
 int main() {
   // объявление переменной и инициализация
@@ -54,6 +81,8 @@ int main() {
   cout << sum2(n+2) << " " << isPrime(n) << endl;
   print();
   cout << x << " " << y << endl;
+
+  workArr(12);
 
   // код возврата (0 - нет ошибки)
   return 0;
