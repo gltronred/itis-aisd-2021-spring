@@ -9,6 +9,33 @@
 // если надоело писать std::
 using namespace std;
 
+// Структуры
+struct intpair {
+  int first;
+  int second;
+};
+
+struct phone {
+  int price;
+  double weight;
+  double screen;
+};
+
+void workStr() {
+  intpair ip;
+  ip.first = 3;
+  ip.second = 4;
+
+  cout << ip.first << " " << ip.second << endl;
+
+  phone p;
+  p.price = 19999;
+  p.weight = 123.45;
+  p.screen = 6.3;
+
+  cout << p.price << " " << p.weight << " " << p.screen << endl;
+}
+
 // Функции
 int sum2(int n) {
   int s = 0;
@@ -84,6 +111,8 @@ int main() {
   cout << x << " " << y << endl;
 
   workArr(12);
+
+  workStr();
 
   // код возврата (0 - нет ошибки)
   return 0;
