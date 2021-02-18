@@ -52,8 +52,8 @@ void workArr(int n) {
   for (int i=0; i<8; i++) {
     b[i] = false;
     int x = (1 << i); // сдвиг влево на i битов
-    for (int j=0; j<8; j++) {
-      b[i] |= (a[i] & x) > 0;
+    for (int j=0; j<n; j++) {
+      b[i] |= (a[j] & x) > 0;
     }
   }
   for (int i=0; i<8; i++) {
@@ -61,6 +61,7 @@ void workArr(int n) {
     if (*(b+i))
       cout << i << " ";
   }
+  cout << endl;
 
   // освобождение памяти
   delete[] a;
