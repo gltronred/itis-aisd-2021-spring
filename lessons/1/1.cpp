@@ -9,6 +9,31 @@
 // если надоело писать std::
 using namespace std;
 
+// Функции
+int sum2(int n) {
+  int s = 0;
+  // циклы - for, while, do-while
+  for (int i=0; i<n; i++) {
+    // условия - if, switch-case
+    if (i % 2 == 1) {
+      s += i*i;
+    }
+  }
+  return s;
+}
+
+void print() {
+  cout << "Hello!" << endl;
+}
+
+// Является ли число простым?
+// 1 - не простое
+// отрицательные - не простые
+// примеры простых: 2, 3, 5, 7, 11, 13, 17, 19
+bool isPrime(int n) {
+  return false;
+}
+
 // точка входа
 int main() {
   // объявление переменной и инициализация
@@ -21,7 +46,9 @@ int main() {
   // ввод-вывод
   int n;
   cin >> n;
-  cout << x << " " << y << " " << n << endl;
+  cout << sum2(n+2) << " " << isPrime(n) << endl;
+  print();
+  cout << x << " " << y << endl;
 
   // код возврата (0 - нет ошибки)
   return 0;
