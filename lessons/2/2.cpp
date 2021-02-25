@@ -42,6 +42,13 @@ int sum_list(elem* head) {
   return s;
 }
 
+// Вернуть список, из которого удалены все чётные
+// элементы
+// Не забудьте вызвать delete
+elem* filter_odd(elem* head) {
+  return head;
+}
+
 int main() {
   elem* head = empty_list();
   head = add(head, 1);
@@ -49,5 +56,7 @@ int main() {
   head = add(head, -124);
   print_list(head);
   cout << sum_list(head) << endl;
+  head = filter_odd(head);
+  print_list(head);
   return 0;
 }
