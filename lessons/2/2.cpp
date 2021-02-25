@@ -31,7 +31,15 @@ void print_list(elem* head) {
 
 // Возвращает сумму элементов списка
 int sum_list(elem* head) {
- 
+  int s = 0;
+  elem* p = head;
+  // NULL == 0, а 0 считается false в условиях
+  // поэтому (p != NULL) эквивалентно (p)
+  while (p) {
+    s += p->val;
+    p = p->next;
+  }
+  return s;
 }
 
 int main() {
@@ -40,5 +48,6 @@ int main() {
   head = add(head, 3);
   head = add(head, -124);
   print_list(head);
+  cout << sum_list(head) << endl;
   return 0;
 }
