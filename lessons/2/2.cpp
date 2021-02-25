@@ -46,14 +46,35 @@ int sum_list(elem* head) {
 // элементы
 // Не забудьте вызвать delete
 elem* filter_odd(elem* head) {
+  while (head && head->val % 2 == 0) {
+    elem* q = head;
+    head = head->next;
+    delete q;
+  }
+  elem* p = head;
+  while (p) {
+    // while - чтобы удалить все четные элементы,
+    // идущие подряд
+    // Можно написать if и сдвигаться дальше только
+    // если мы не удаляли элемент
+    while (p->next && p->next->val % 2 == 0) {
+      elem* q = p->next;
+      p->next = p->next->next;
+      delete q;
+    }
+    p = p->next;
+  }
   return head;
 }
 
 int main() {
   elem* head = empty_list();
   head = add(head, 1);
+  head = add(head, 2);
+  head = add(head, 2);
   head = add(head, 3);
   head = add(head, -124);
+  head = add(head, -126);
   print_list(head);
   cout << sum_list(head) << endl;
   head = filter_odd(head);
