@@ -24,8 +24,10 @@ void print_list(elem* head) {
 }
 
 // Определить и вывести начало цикла и его длину
+//
+// (если цикла нет, то вывести -1 -1)
 void print_cycle(elem* head) {
-  int k=0, n=-1;
+  int k=-1, n=-1;
 
   cout << k << " " << n << endl;
 }
