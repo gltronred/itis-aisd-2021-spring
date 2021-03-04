@@ -23,6 +23,13 @@ void print_list(elem* head) {
   cout << endl;
 }
 
+// Определить и вывести начало цикла и его длину
+void print_cycle(elem* head) {
+  int k=0, n=-1;
+
+  cout << k << " " << n << endl;
+}
+
 
 int main() {
   int k,n;
@@ -38,6 +45,9 @@ int main() {
     head = add(head, i+n);
   }
 
-  print_list(head);
+  // ЗАВИСАЕТ! Список циклический!
+  // print_list(head);
+
+  print_cycle(head);
   return 0;
 }
