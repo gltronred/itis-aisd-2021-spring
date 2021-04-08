@@ -17,11 +17,20 @@ void init(int n) {
   }
 }
 
+void destroy() {
+  delete[] parent;
+  delete[] rank;
+  count = 0;
+}
+
 int find(int x) {
   if (parent[x] == x)
     return x;
-  else
-    return find(parent[x]);
+  else {
+    int y = find(parent[x]);
+    parent[x] = y;
+    return y;
+  }
 }
 
 void join(int x, int y) {
@@ -58,6 +67,18 @@ int main() {
   join(3,4);
   debug_print();
   join(2,3);
+  debug_print();
+  cout << find(4) << endl;
+  debug_print();
+  destroy();
+
+  init(8);
+  for (int i=0; i<5; i++) {
+    join(2*i, 2*i+1);
+  }
+  join(0,2);
+  join(4,6);
+  join(0,4);
   debug_print();
   return 0;
 }
